@@ -17,7 +17,7 @@ interface Props {
 const RepoCard: Component<Props> = ({ repo }) => {
   return (
     <div class='rounded-lg border border-neutral-200 p-4 my-4 space-y-2'>
-      <div class='border-b border-neutral-100'>
+      <div class='border-b border-neutral-100 bg-neutral-50'>
         &#11088; stars:{' '}
         <span class='text-sm font-mono'>{repo.stargazers_count}</span>
       </div>
