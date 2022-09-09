@@ -6,7 +6,7 @@ specifiers:
   solid-app-router: ^0.4.2
   solid-js: ^1.5.4
   tailwindcss: ^3.1.8
-  typescript: ^4.8.2
+  typescript: ^4.8.3
   vite: ^3.1.0
   vite-plugin-solid: ^2.3.0
 
@@ -18,7 +18,7 @@ devDependencies:
   autoprefixer: 10.4.8_postcss@8.4.16
   postcss: 8.4.16
   tailwindcss: 3.1.8_postcss@8.4.16
-  typescript: 4.8.2
+  typescript: 4.8.3
   vite: 3.1.0
   vite-plugin-solid: 2.3.0_solid-js@1.5.4+vite@3.1.0
 
@@ -1262,8 +1262,8 @@ packages:
     resolution: {integrity: sha512-nsZd8ZeNUzukXPlJmTBwUAuABDe/9qtVDelJeT/qW0ow3ZS3BsQJtNkan1802aM9Uf68/Y8ljw86Hu0h5IUW3w==}
     dev: true
 
-  /typescript/4.8.2:
-    resolution: {integrity: sha512-C0I1UsrrDHo2fYI5oaCGbSejwX4ch+9Y5jTQELvovfmFkK3HHSZJB8MSJcWLmCUBzQBchCrZ9rMRV6GuNrvGtw==}
+  /typescript/4.8.3:
+    resolution: {integrity: sha512-goMHfm00nWPa8UvR/CPSvykqf6dVV8x/dp0c5mFTMTIu0u0FlGWRioyy7Nn0PGAdHxpJZnuO/ut+PpQ8UiHAig==}
     engines: {node: '>=4.2.0'}
     hasBin: true
     dev: true
