@@ -1,4 +1,5 @@
 import { Component } from 'solid-js';
+import { saveRepos, setSaveRepos } from '../pages/SavedRepos';
 
 export type Repo = {
   id: string;
@@ -14,6 +15,20 @@ interface Props {
   repo: Repo;
 }
 
+const saveRepo = (repo: Repo) => {
+  setSaveRepos([repo, ...saveRepos()]);
+  localStorage.setItem('savedRepos', JSON.stringify(saveRepos()));
+};
+
+const unSaveRepo = (repoId: string) => {
+  setSaveRepos(saveRepos()?.filter((repo) => repo.id !== repoId));
+  localStorage.setItem('savedRepos', JSON.stringify(saveRepos()));
+};
+
+const repoIsSaved = (repoId: string) => {
+  return saveRepos()?.some((repo) => repo.id === repoId);
+};
+
 const RepoCard: Component<Props> = ({ repo }) => {
   return (
     <div class='rounded-lg border border-neutral-200 p-4 my-4 space-y-2'>
@@ -28,9 +43,19 @@ const RepoCard: Component<Props> = ({ repo }) => {
           </strong>
         </a>
         <p class='text-sm'>{repo.description}</p>
-        <button class='px-2 py-1 bg-teal-800 text-white rounded text-sm my-2'>
-          Save
-        </button>
+        {repoIsSaved(repo.id) ? (
+          <button
+            class='px-2 py-1 bg-rose-800 text-white rounded text-sm my-2'
+            onClick={() => unSaveRepo(repo.id)}>
+            UnSave
+          </button>
+        ) : (
+          <button
+            class='px-2 py-1 bg-teal-800 text-white rounded text-sm my-2'
+            onClick={() => saveRepo(repo)}>
+            Save
+          </button>
+        )}
       </div>
     </div>
   );

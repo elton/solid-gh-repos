@@ -1,11 +1,20 @@
-import { Component } from 'solid-js';
+import { Component, createSignal, For } from 'solid-js';
+import RepoCard, { Repo } from '../components/RepoCard';
+
+const reposFromLocalStorage = JSON.parse(
+  localStorage.getItem('savedRepos') || '[]'
+);
+
+const [saveRepos, setSaveRepos] = createSignal(reposFromLocalStorage as Repo[]);
 
 const SavedRepos: Component = () => {
   return (
     <div>
-      <h2>SavedRepos</h2>
+      <h2>Your saved repos</h2>
+      <For each={saveRepos()}>{(repo: Repo) => <RepoCard repo={repo} />}</For>
     </div>
   );
 };
 
+export { setSaveRepos, saveRepos };
 export default SavedRepos;

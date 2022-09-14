@@ -8,13 +8,14 @@ const SavedRepos = lazy(() => import('./pages/SavedRepos'));
 const [username, setUsername] = createSignal('elton');
 const [repos, setRepos] = createSignal([]);
 
+createEffect(async () => {
+  const res = await fetch(
+    `https://api.github.com/users/${username()}/repos?sort=created` // It will be refetch when username changes.
+  );
+  setRepos(await res.json());
+});
+
 const App: Component = () => {
-  createEffect(async () => {
-    const res = await fetch(
-      `https://api.github.com/users/${username()}/repos?sort=created`
-    );
-    setRepos(await res.json());
-  });
   return (
     <div class='container p-5'>
       <Nav />

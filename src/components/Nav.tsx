@@ -1,5 +1,6 @@
 import { NavLink } from 'solid-app-router';
 import { Component } from 'solid-js';
+import { saveRepos } from '../pages/SavedRepos';
 
 const Nav: Component = () => {
   return (
@@ -15,7 +16,7 @@ const Nav: Component = () => {
         href='/favrepos'
         class='border px-2 py-1 bg-emerald-700 rounded text-white'
         activeClass='bg-rose-700'>
-        Saved ~ 5
+        Saved ~ {saveRepos().length}
       </NavLink>
     </nav>
   );
